@@ -20,6 +20,10 @@ class AmountsController < ApplicationController
     redirect_to @recipe, status: :see_other
   end
 
+  def edit
+    # TODO
+  end
+
   private
   
   def amount_params
