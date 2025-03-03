@@ -1,0 +1,52 @@
+<h1><%= @recipe.title %></h1>
+
+<p><%= @recipe.body %></p>
+<p>Ingredients:
+  <ul>
+    <% @recipe.amounts.each do |amount|%>
+  <li>
+    <%= "#{amount.ingredient.name}, #{amount.mengen} #{amount.einheit}" %> 
+    <%= link_to "Destroy", recipe_amount_path(@recipe, amount), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+  </li>
+  <%end%>
+  </ul>
+  </p>
+<%= link_to "Back", recipes_path %>
+
+<ul>
+  <li><%= link_to "Edit", edit_recipe_path(@recipe) %></li>
+  <li><%= link_to "Destroy", recipe_path(@recipe), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
+
+<%= form_with model: [@recipe, @amount] do |form| %>
+  <div>
+    <%= form.label :Ingredients%>
+    <%= form.collection_select :ingredient_id, Ingredient.all, :id, :name %>
+  </div>
+
+  <div>
+    <%= form.label :mengen %><br>
+    <%= form.text_field :mengen %>
+    <% @amount.errors.full_messages_for(:mengen).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :einheit %><br>
+    <%= form.select :einheit, ["g","ml","Stück","EL","TL"] %><br>
+    <% @amount.errors.full_messages_for(:einheit).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
