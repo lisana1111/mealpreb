@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resource :session
   resources :passwords, param: :token
-  root "recipes#index"
+  root "home#index"
   resources :recipes do 
     resources :amounts, only: [:create, :destroy]
   end

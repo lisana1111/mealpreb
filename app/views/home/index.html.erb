@@ -1,0 +1,16 @@
+<h1><%= @planer.title%></h1>
+
+<p>
+  monday: <%= @planer.monday_recipe.title%> </br> 
+  tuesday:</br>
+  wednesday:</br>
+  thursday:</br>
+  friday:</br>
+  satureday:</br>
+  sunday:</br>
+  </p>
+
+  <p>
+    <%= link_to "New Recipe", new_recipe_path %> <br>
+<%= link_to "Ingredients", ingredients_path %>
+    </p>
