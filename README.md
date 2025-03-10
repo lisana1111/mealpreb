@@ -17,3 +17,5 @@ mit  bundle exec rails console kann man das irb für rails öffnen
 
 24.02.2025 Die Amounts miteinander Verbinden, damit sie gespeichert werden können und angezeit werden könne. 
 24.02.2025 Mich mit Git auseinandersetzten und mein Projekt da drauf tun. 
+
+10.03.2025 Wochenplan mit Datum speichern und neuen erstellen lassen. 2 Wochen sollen angezeigt werden. Es soll immer die aktuelle Woche angezeicht werden und die nächste Woche. Es soll immer eine neue Woche angezeigt werden wenn die erste endet.
