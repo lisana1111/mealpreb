@@ -1,29 +1,33 @@
-<h1><%= @planer.title%></h1>
+<h1>Weeklyplaner</h1>
 
 <h2>This Week</h2>
 
 <p>
-  monday: <%= link_to @planer.monday_recipe.title, @planer.monday_recipe %></br>   
-  tuesday:<%= link_to @planer.tuesday_recipe.title, @planer.tuesday_recipe%> </br>
-  wednesday:<%= link_to @planer.wednesday_recipe.title, @planer.wednesday_recipe%> </br>
-  thursday:<%= link_to @planer.thursday_recipe.title, @planer.thursday_recipe%> </br>
-  friday:<%= link_to @planer.friday_recipe.title, @planer.friday_recipe%> </br>
-  satureday:<%= link_to @planer.satureday_recipe.title, @planer.satureday_recipe%> </br>
-  sunday:<%= link_to @planer.sunday_recipe.title, @planer.sunday_recipe%> </br>
+  monday: <%= link_to @planer_this_week.monday_recipe.title, @planer_this_week.monday_recipe %></br>   
+  tuesday:<%= link_to @planer_this_week.tuesday_recipe.title, @planer_this_week.tuesday_recipe%> </br>
+  wednesday:<%= link_to @planer_this_week.wednesday_recipe.title, @planer_this_week.wednesday_recipe%> </br>
+  thursday:<%= link_to @planer_this_week.thursday_recipe.title, @planer_this_week.thursday_recipe%> </br>
+  friday:<%= link_to @planer_this_week.friday_recipe.title, @planer_this_week.friday_recipe%> </br>
+  satureday:<%= link_to @planer_this_week.satureday_recipe.title, @planer_this_week.satureday_recipe%> </br>
+  sunday:<%= link_to @planer_this_week.sunday_recipe.title, @planer_this_week.sunday_recipe%> </br>
   </p>
 
 <h2>Next Week</h2>
 
-  monday: <%= link_to @planer.monday_recipe.title, @planer.monday_recipe %></br>   
-  tuesday:<%= link_to @planer.tuesday_recipe.title, @planer.tuesday_recipe%> </br>
-  wednesday:<%= link_to @planer.wednesday_recipe.title, @planer.wednesday_recipe%> </br>
-  thursday:<%= link_to @planer.thursday_recipe.title, @planer.thursday_recipe%> </br>
-  friday:<%= link_to @planer.friday_recipe.title, @planer.friday_recipe%> </br>
-  satureday:<%= link_to @planer.satureday_recipe.title, @planer.satureday_recipe%> </br>
-  sunday:<%= link_to @planer.sunday_recipe.title, @planer.sunday_recipe%> </br>
+  monday: <%= link_to @planer_next_week.monday_recipe.title, @planer_next_week.monday_recipe %></br>   
+  tuesday:<%= link_to @planer_next_week.tuesday_recipe.title, @planer_next_week.tuesday_recipe%> </br>
+  wednesday:<%= link_to @planer_next_week.wednesday_recipe.title, @planer_next_week.wednesday_recipe%> </br>
+  thursday:<%= link_to @planer_next_week.thursday_recipe.title, @planer_next_week.thursday_recipe%> </br>
+  friday:<%= link_to @planer_next_week.friday_recipe.title, @planer_next_week.friday_recipe%> </br>
+  satureday:<%= link_to @planer_next_week.satureday_recipe.title, @planer_next_week.satureday_recipe%> </br>
+  sunday:<%= link_to @planer_next_week.sunday_recipe.title, @planer_next_week.sunday_recipe%> </br>
 
 
   <p>
     <%= link_to "New Recipe", new_recipe_path %> <br>
 <%= link_to "Ingredients", ingredients_path %>
     </p>
+
+  <h1>Shoppinglist</h2>
+
+  
