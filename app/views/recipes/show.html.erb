@@ -5,7 +5,7 @@
   <ul>
     <% @recipe.amounts.each do |amount|%>
   <li>
-    <%= "#{amount.ingredient.name}, #{amount.mengen} #{amount.einheit}" %> 
+    <%= "#{amount.ingredient.name}, #{amount.mengen} #{amount.einheit}"%>    
     <%= link_to "Destroy", recipe_amount_path(@recipe, amount), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
@@ -49,4 +49,7 @@
   <div>
     <%= form.submit %>
   </div>
+
+
+  <%= link_to "New Ingredients", new_ingredient_path %>
 <% end %>

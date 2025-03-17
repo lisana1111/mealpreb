@@ -20,3 +20,5 @@ it  bundle exec rails console kann man das irb für rails öffnen
 
 10.03.2025 Wochenplan mit Datum speichern und neuen erstellen lassen. 2 Wochen sollen angezeigt werden. Es soll immer die aktuelle Woche angezeicht werden und die nächste Woche. Es soll immer eine neue Woche angezeigt werden wenn die erste endet.
 Für nächstes mal: Planer erneuert sich wenn man auf das Rezept drückt und dann zurück auf "Home". 
+
+17.03.25 Einkaufsliste erstellen. Es soll für diese Woche und nächste Woche die Einkaufliste erstellen. Diese wird auch einMal in der Woche generiert. Es soll die einzelnen Zutaten zusammenzählen und als eine Einheit angeben. (3Tomaten in einem Rezept und 5 Tomaten in einem anderen Rezept sollen auf der Liste als 8 Tomaten angezeigt werden.)
