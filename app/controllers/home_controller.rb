@@ -31,6 +31,25 @@ class HomeController < ApplicationController
 
 
   end
+  if @planer_this_week
+    recipe_ids = [
+      @planer_this_week.monday_recipe_id,
+      @planer_this_week.tuesday_recipe_id,
+      @planer_this_week.wednesday_recipe_id,
+      @planer_this_week.thursday_recipe_id,
+      @planer_this_week.friday_recipe_id,
+      @planer_this_week.satureday_recipe_id,
+      @planer_this_week.sunday_recipe_id
+    ].compact # Entfernt nil-Werte, falls ein Rezept fehlt
+
+    Rails.logger.debug "Recipe IDs für diese Woche: #{recipe_ids.inspect}"
+
+
+    @ingredients = Amount.where(recipe_id: recipe_ids).summed_ingredients || []  # Hier geändert!
+    else
+      @ingredients = [] # Falls kein Plan existiert, leere Einkaufsliste
+    end
+
 
 private
   def findplaner_for_this_week 

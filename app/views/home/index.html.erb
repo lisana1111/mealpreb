@@ -28,13 +28,18 @@
 <%= link_to "Ingredients", ingredients_path %>
     </p>
 
-  <h1>Shoppinglist</h2>
+  
+   <h1>Shoppinglist</h1>
 
-   <% @planer_this_week.amounts.each do |amount|%>
-    <li>
-    <%= "#{amount.ingredient.name}, #{amount.mengen} #{amount.einheit}"%>
-   <%end%>
-   
-   
-   
+<% if @ingredients && @ingredients.any? %>
+  <ul>
+    <% @ingredients.each do |ingredient| %>
+      <li>
+        <%= "#{ingredient.name}, #{ingredient.total_menge} #{ingredient.einheit}" %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Keine Einkaufsliste verfügbar</p>
+<% end %>
 

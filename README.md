@@ -5,7 +5,7 @@
 9.12.2024 Mit Ingrediens weitermachen bei 7.2 weitermachen
 
 damit kann ich den rails server ausführen: bundle exec rails server
-it  bundle exec rails console kann man das irb für rails öffnen
+mit  bundle exec rails console kann man das irb für rails öffnen
 
 27.01.2025 Mit Ingrediens weitermachen bei 10.2 weitermachen
 
