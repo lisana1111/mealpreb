@@ -31,15 +31,12 @@
   
    <h1>Shoppinglist</h1>
 
-<% if @ingredients && @ingredients.any? %>
+<% if @ingredients.any? %>
   <ul>
     <% @ingredients.each do |ingredient| %>
-      <li>
-        <%= "#{ingredient.name}, #{ingredient.total_menge} #{ingredient.einheit}" %>
-      </li>
+      <li><%= "#{ingredient.name}: #{ingredient.total_menge} #{ingredient.einheit}" %></li>
     <% end %>
   </ul>
 <% else %>
   <p>Keine Einkaufsliste verfügbar</p>
 <% end %>
-
