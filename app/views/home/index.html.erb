@@ -1,6 +1,7 @@
 <h1>Weeklyplaner</h1>
 
-<h2>This Week</h2>
+<h2>This Week (<%= @planer_this_week.id %>)</h2>
+<li><%= link_to "Edit", edit_weeklyplaner_path(@planer_this_week) %></li>
 
 <p>
   monday: <%= link_to @planer_this_week.monday_recipe.title, @planer_this_week.monday_recipe %></br>   
@@ -12,7 +13,7 @@
   sunday:<%= link_to @planer_this_week.sunday_recipe.title, @planer_this_week.sunday_recipe%> </br>
   </p>
 
-<h2>Next Week</h2>
+<h2>Next Week (<%= @planer_next_week.id %>)</h2>
 
   monday: <%= link_to @planer_next_week.monday_recipe.title, @planer_next_week.monday_recipe %></br>   
   tuesday:<%= link_to @planer_next_week.tuesday_recipe.title, @planer_next_week.tuesday_recipe%> </br>

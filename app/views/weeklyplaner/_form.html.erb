@@ -1,0 +1,41 @@
+<%= form_with model: weeklyplaner do |form| %>
+<div>
+    <%= form.label :monday_recipe_id%>
+    <%= form.collection_select :monday_recipe_id, Recipe.all, :id, :title %>
+</div>
+<br>
+<div>
+    <%= form.label :tuesday_recipe_id%>
+    <%= form.collection_select :tuesday_recipe_id, Recipe.all, :id, :title %>
+</div>
+<br>
+<div>
+    <%= form.label :wednesdayednesday_recipe_id%>
+    <%= form.collection_select :wednesday_recipe_id, Recipe.all, :id, :title %>
+</div>
+<br>
+<div>
+    <%= form.label :thursday_recipe_id%>
+    <%= form.collection_select :thursday_recipe_id, Recipe.all, :id, :title %>
+</div>
+<br>
+<div>
+    <%= form.label :friday_recipe_id%>
+    <%= form.collection_select :friday_recipe_id, Recipe.all, :id, :title %>
+</div>
+<br>
+<div>
+    <%= form.label :saturday_recipe_id%>
+    <%= form.collection_select :saturday_recipe_id, Recipe.all, :id, :title %>
+</div>
+<br>
+<div>
+    <%= form.label :sunday_recipe_id%>
+    <%= form.collection_select :sunday_recipe_id, Recipe.all, :id, :title %>
+</div>
+
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
