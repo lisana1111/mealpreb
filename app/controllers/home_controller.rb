@@ -40,21 +40,30 @@ class HomeController < ApplicationController
         @planer_this_week.sunday_recipe_id
       ].compact
 
-      
+      recipe_counts = recipe_ids.tally
+      amounts = Amount
+        .where(recipe_id: recipe_counts.keys)
+        .includes(:ingredient)
 
-      @ingredients = Amount
-        .where(recipe_id: recipe_ids)
-        .joins(:ingredient)
-        .group("ingredients.name, amounts.einheit")
-        .select("ingredients.name, amounts.einheit, SUM(amounts.mengen) as total_menge")
+      ingredients_hash = {}
 
+      amounts.each do |amount|
+        key = [amount.ingredient.name, amount.einheit]
+        menge = amount.mengen * recipe_counts[amount.recipe_id]
 
+        if ingredients_hash[key]
+          ingredients_hash[key] += menge
+        else
+          ingredients_hash[key] = menge
+        end
+      end
+
+      # Erstellen eines Arrays von Hashes für die View
+      @ingredients = ingredients_hash.map do |(name, einheit), total_menge|
+        { name: name, einheit: einheit, total_menge: total_menge }
+      end
+    else
+      @ingredients = []
     end
-  end
-
-  private
-
-  def findplaner_for_this_week 
-    # Optional
   end
 end

@@ -30,14 +30,14 @@
     </p>
 
   
-   <h1>Shoppinglist</h1>
+  <h1>Shoppinglist</h1>
 
 <% if @ingredients.any? %>
   <ul>
     <% @ingredients.each do |ingredient| %>
-      <li><%= "#{ingredient.name}: #{ingredient.total_menge} #{ingredient.einheit}" %></li>
+      <li><%= "#{ingredient[:name]}: #{ingredient[:total_menge]} #{ingredient[:einheit]}" %></li>
     <% end %>
   </ul>
 <% else %>
-  <p>Keine Einkaufsliste verfügbar</p>
+  <p>No ingredients found.</p>
 <% end %>
