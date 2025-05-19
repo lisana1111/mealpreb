@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_03_191533) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_28_170843) do
   create_table "amounts", force: :cascade do |t|
     t.integer "recipe_id"
     t.integer "ingredient_id"
@@ -44,6 +44,17 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_03_191533) do
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end
 
+  create_table "shopping_items", force: :cascade do |t|
+    t.string "name"
+    t.string "einheit"
+    t.float "total_menge"
+    t.boolean "done"
+    t.integer "weeklyplaner_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["weeklyplaner_id"], name: "index_shopping_items_on_weeklyplaner_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email_address", null: false
     t.string "password_digest", null: false
@@ -73,6 +84,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_03_191533) do
   end
 
   add_foreign_key "sessions", "users"
+  add_foreign_key "shopping_items", "weeklyplaners"
   add_foreign_key "weeklyplaners", "recipes", column: "friday_recipe_id"
   add_foreign_key "weeklyplaners", "recipes", column: "monday_recipe_id"
   add_foreign_key "weeklyplaners", "recipes", column: "satureday_recipe_id"

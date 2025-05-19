@@ -6,7 +6,7 @@ class Weeklyplaner < ApplicationRecord
   belongs_to :friday_recipe, class_name: "Recipe", optional: true
   belongs_to :satureday_recipe, class_name: "Recipe", optional: true
   belongs_to :sunday_recipe, class_name: "Recipe", optional: true  
-
+  has_many :shopping_items
   def amounts
     monday_recipe.amounts + tuesday_recipe.amounts + wednesday_recipe.amounts + thursday_recipe.amounts + friday_recipe.amounts + satureday_recipe.amounts + sunday_recipe.amounts 
   end

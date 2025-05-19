@@ -32,12 +32,63 @@
   
   <h1>Shoppinglist</h1>
 
-<% if @ingredients.any? %>
-  <ul>
-    <% @ingredients.each do |ingredient| %>
-      <li><%= "#{ingredient[:name]}: #{ingredient[:total_menge]} #{ingredient[:einheit]}" %></li>
-    <% end %>
-  </ul>
+<% if @shopping_items.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Erledigt</th>
+        <th>Artikel</th>
+        <th>Menge</th>
+        <th>Einheit</th>
+        <th>Aktion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @shopping_items.each do |item| %>
+        <tr>
+          <td>
+            <%= form_with model: [item.weeklyplaner, item], local: true do |f| %>
+              <%= f.check_box :done, { onchange: "this.form.submit();" } %>
+              <%= f.number_field :total_menge, step: 0.1, onchange: "this.form.submit();" %>
+            <% end %>
+          </td>
+          <td><%= item.name %></td>
+          
+          <td><%= item.einheit %></td>
+          <td>
+            <%= button_to 'Löschen', [item.weeklyplaner, item], method: :delete, data: { confirm: "Wirklich löschen?" } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 <% else %>
   <p>No ingredients found.</p>
 <% end %>
+
+<h1> New Shoppinglistitem </h1>
+
+<%= form_with model: [@planer_this_week, ShoppingItem.new] do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+  <%= form.label :einheit %>
+  <%= form.text_field :einheit %>
+  </div>
+
+  <div>
+  <%= form.label :total_menge %>
+  <%= form.text_field :total_menge %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+
+<% end %>
+
+
+
