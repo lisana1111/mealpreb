@@ -67,10 +67,9 @@ class HomeController < ApplicationController
           )
         end
       end
-
-      @shopping_items = @planer_this_week.shopping_items
-    else
-      @shopping_items = []
+      
+      # 🆕 Egal ob leer oder nicht: neu laden
+      @shopping_items = @planer_this_week.shopping_items.order(:created_at)
     end
   end
 end
