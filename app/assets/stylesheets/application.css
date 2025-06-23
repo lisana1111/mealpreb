@@ -8,3 +8,303 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+/* Grundlayout */
+
+body {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: linear-gradient(to bottom, #e6ffe6, #ccffcc);
+  color: #2e5939;
+  margin: 2rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(144, 238, 144, 0.4);
+  position: relative;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #3b7a57;
+  text-shadow: 1px 1px #d0f0c0;
+  border-bottom: 2px dashed #a3d9a5;
+  padding-bottom: 0.5rem;
+  margin-top: 2rem;
+}
+
+h2 {
+  color: #4a8c6f;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+}
+
+h3 {
+  color: #5aaf7d;
+  font-size: 1.2rem;
+  margin-top: 1.2rem;
+  text-shadow: 1px 1px #e0ffe0;
+  padding-left: 0.5rem;
+  font-weight: 600;
+}
+
+
+a {
+  color: #3b7a57;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: #d9fdd3;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  transition: all 0.2s ease-in-out;
+}
+
+a:hover {
+  background-color: #b4e7b1;
+  color: #26543b;
+}
+
+
+
+.card {
+  background-color: #f0fff4;
+  border: 2px dashed #b3e6b3;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  border-radius: 15px;
+  box-shadow: 0 3px 8px rgba(144, 238, 144, 0.3);
+}
+
+.button {
+  background-color: #a0e8af;
+  padding: 0.6rem 1rem;
+  color: #245634;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin: 0.3rem 0;
+  transition: 0.2s ease-in-out;
+}
+
+.button:hover {
+  background-color: #82d195;
+  color: #ffffff;
+}
+
+.days br {
+  margin-bottom: 0.8rem;
+  display: block;
+  content: "";
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background-color: #f6fff6;
+  box-shadow: 0 2px 8px rgba(144, 238, 144, 0.3);
+  border-radius: 12px;
+  overflow: hidden;
+  font-size: 1rem;
+}
+
+thead {
+  background-color: #d0f7d6;
+  color: #2e5939;
+}
+
+thead th {
+  padding: 0.75rem;
+  text-align: left;
+  font-weight: bold;
+  border-bottom: 2px dashed #b3e6b3;
+}
+
+tbody td {
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid #ccffcc;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #eaffea;
+}
+
+tbody tr:hover {
+  background-color: #d4f5d4;
+}
+
+td button,
+td input[type="submit"] {
+  background-color: #b4e7b1;
+  color: #245634;
+  border: none;
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+td button:hover,
+td input[type="submit"]:hover {
+  background-color: #94d894;
+  color: #fff;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.2);
+  accent-color: #70c470;
+  cursor: pointer;
+}
+
+input[type="number"],
+input[type="text"] {
+  padding: 0.3rem;
+  border: 1px solid #bde5bd;
+  border-radius: 6px;
+  background-color: #f8fff8;
+  width: 60px;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+input[type="text"] {
+  padding: 0.4rem;
+  border-radius: 8px;
+  border: 1px solid #b4e7b1;
+  background-color: #f0fff4;
+  font-family: 'Comic Sans MS', cursive;
+}
+
+select {
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #b4e7b1;
+  background-color: #f0fff4;
+  color: #2e5939;
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+select:hover {
+  background-color: #e0ffe0;
+  border-color: #98e6a0;
+}
+
+select:focus {
+  outline: none;
+  box-shadow: 0 0 5px #b4e7b1;
+  border-color: #82d195;
+}
+
+input[type="submit"] {
+  background-color: #a0e8af;
+  color: #245634;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.1s;
+  box-shadow: 0 3px 6px rgba(144, 238, 144, 0.4);
+}
+
+input[type="submit"]:hover {
+  background-color: #82d195;
+  color: white;
+  transform: scale(1.03);
+}
+
+input[type="submit"]:active {
+  transform: scale(0.98);
+}
+
+li {
+  margin-bottom: 0.7rem;
+}
+
+.shopping-form-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+}
+
+.form-group label {
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+  color: #3b7a57;
+}
+
+.form-submit {
+  margin-top: 1rem;
+}
+
+.button-row {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+  flex-wrap: wrap; /* optional, falls Bildschirm schmal ist */
+}
+
+.week-grid {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.week-grid .card {
+  flex: 1 1 48%;
+}
+
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.button-group .btn {
+  padding: 0.5rem 1rem;
+  background-color: #3b7a57; /* dunkles Grün */
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border: 2px solid #245634; /* sichtbare Umrandung */
+  border-radius: 6px;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.button-group .btn:hover {
+  background-color: #2e5939; /* etwas dunkleres Grün beim Hover */
+  border-color: #1c3b25; /* Rahmen auch etwas dunkler */
+}
+
+.button-group {
+  margin-top: 1rem;
+}
+
+.button-group .btn {
+  margin-right: 1rem;
+}
+
+
+

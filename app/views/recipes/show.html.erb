@@ -1,7 +1,9 @@
 <h1><%= @recipe.title %></h1>
 
-<p><%= @recipe.body %></p>
-<p>Ingredients:
+<h3>Zubereitung:</h3>
+<p><%= simple_format(@recipe.body) %></p>
+<p>
+  <h3>Zutaten:</h3>
   <ul>
     <% @recipe.amounts.each do |amount|%>
   <li>
@@ -14,42 +16,45 @@
   <%end%>
   </ul>
   </p>
-<%= link_to "Back", recipes_path %>
 
-<ul>
-  <li><%= link_to "Edit", edit_recipe_path(@recipe) %></li>
-  <li><%= link_to "Destroy", recipe_path(@recipe), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %></li>
-</ul>
+<div class="button-group">
+  <%= link_to "🔙 Back", recipes_path, class: "btn" %>
+  <%= link_to "✏️ Edit", edit_recipe_path(@recipe), class: "btn" %>
+  <%= link_to "🗑️ Destroy", recipe_path(@recipe), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn" %>
+</div>
 
+
+
+<p>
 <%= form_with model: [@recipe, @amount] do |form| %>
   <div>
-    <%= form.label :Ingredients%>
+    <%= form.label :Zutaten%>
     <%= form.collection_select :ingredient_id, Ingredient.all, :id, :name %>
   </div>
-
+</p>
+<p>
   <div>
-    <%= form.label :mengen %><br>
+    <%= form.label :mengen %>
     <%= form.text_field :mengen %>
     <% @amount.errors.full_messages_for(:mengen).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
-
+</p>
+<p>
   <div>
-    <%= form.label :einheit %><br>
-    <%= form.select :einheit, ["g","ml","Stück","EL","TL"] %><br>
+    <%= form.label :einheit %>
+    <%= form.select :einheit, ["g","ml","Stück","EL","TL", "Tasse"] %><br>
     <% @amount.errors.full_messages_for(:einheit).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
-
+</p>
+<p>
   <div>
-    <%= form.submit %>
+    <%= form.submit "➕ Zutat hinzufügen" %>
   </div>
+</p>
 
-
-  <%= link_to "New Ingredients", new_ingredient_path %>
+  <%= link_to "Neue Zutat", new_ingredient_path %>
 <% end %>

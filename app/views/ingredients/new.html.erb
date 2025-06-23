@@ -1,4 +1,7 @@
-<h1>New ingredient</h1>
+<h1>Neue Zutat</h1>
 
 <%= render "form", ingredient: @ingredient %>
-<%= link_to "Cancel", ingredients_path %>
+
+<div class="button-group">
+  <%= link_to "Cancel", ingredients_path, class: "btn cancel" %>
+</div>

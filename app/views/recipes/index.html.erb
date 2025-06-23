@@ -1,4 +1,6 @@
-<h1>Recipes</h1>
+<h1>Rezepte</h1>
+<%= link_to "New Recipe", new_recipe_path %> <br>
+<%= link_to "Ingredients", ingredients_path %> <br>
 
 <ul>
   <% @recipes.each do |recipe|%>
@@ -8,6 +10,3 @@
   <%end%>
 </ul>
 
-<%= link_to "New Recipe", new_recipe_path %> <br>
-<%= link_to "Ingredients", ingredients_path %> <br>
-<%= link_to "Home", root_path %>

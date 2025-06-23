@@ -1,45 +1,62 @@
-<h1>Weeklyplaner</h1>
+<body>
+<h1>Wochenplan</h1>
 
-<h2>This Week (<%= @planer_this_week.id %>)</h2>
-<li><%= link_to "Edit", edit_weeklyplaner_path(@planer_this_week) %></li>
+<div class="week-grid">
+<section class="card">
+<h2>Diese Woche</h2>
 
-<p>
-  monday: <%= link_to @planer_this_week.monday_recipe.title, @planer_this_week.monday_recipe %></br>   
-  tuesday:<%= link_to @planer_this_week.tuesday_recipe.title, @planer_this_week.tuesday_recipe%> </br>
-  wednesday:<%= link_to @planer_this_week.wednesday_recipe.title, @planer_this_week.wednesday_recipe%> </br>
-  thursday:<%= link_to @planer_this_week.thursday_recipe.title, @planer_this_week.thursday_recipe%> </br>
-  friday:<%= link_to @planer_this_week.friday_recipe.title, @planer_this_week.friday_recipe%> </br>
-  satureday:<%= link_to @planer_this_week.satureday_recipe.title, @planer_this_week.satureday_recipe%> </br>
-  sunday:<%= link_to @planer_this_week.sunday_recipe.title, @planer_this_week.sunday_recipe%> </br>
-  </p>
-
-<h2>Next Week (<%= @planer_next_week.id %>)</h2>
-
-  monday: <%= link_to @planer_next_week.monday_recipe.title, @planer_next_week.monday_recipe %></br>   
-  tuesday:<%= link_to @planer_next_week.tuesday_recipe.title, @planer_next_week.tuesday_recipe%> </br>
-  wednesday:<%= link_to @planer_next_week.wednesday_recipe.title, @planer_next_week.wednesday_recipe%> </br>
-  thursday:<%= link_to @planer_next_week.thursday_recipe.title, @planer_next_week.thursday_recipe%> </br>
-  friday:<%= link_to @planer_next_week.friday_recipe.title, @planer_next_week.friday_recipe%> </br>
-  satureday:<%= link_to @planer_next_week.satureday_recipe.title, @planer_next_week.satureday_recipe%> </br>
-  sunday:<%= link_to @planer_next_week.sunday_recipe.title, @planer_next_week.sunday_recipe%> </br>
-
+<div class="days">
 
   <p>
-    <%= link_to "New Recipe", new_recipe_path %> <br>
-<%= link_to "Ingredients", ingredients_path %>
-    </p>
+  Montag: <%= link_to @planer_this_week.monday_recipe.title, @planer_this_week.monday_recipe %></br>   
+  Dienstag:<%= link_to @planer_this_week.tuesday_recipe.title, @planer_this_week.tuesday_recipe%> </br>
+  Mittwoch:<%= link_to @planer_this_week.wednesday_recipe.title, @planer_this_week.wednesday_recipe%> </br>
+  Donnerstag:<%= link_to @planer_this_week.thursday_recipe.title, @planer_this_week.thursday_recipe%> </br>
+  Freitag:<%= link_to @planer_this_week.friday_recipe.title, @planer_this_week.friday_recipe%> </br>
+  Samstag:<%= link_to @planer_this_week.satureday_recipe.title, @planer_this_week.satureday_recipe%> </br>
+  Sonntag:<%= link_to @planer_this_week.sunday_recipe.title, @planer_this_week.sunday_recipe%> </br>
+  </p>
+</div>
+<div class="actions">
+  <%= link_to "Bearbeiten", edit_weeklyplaner_path(@planer_this_week), class: "button" %>
+</div>
+
+</section>
+
+<section class="card">
+<h2>Nächste Woche</h2>
+  <div class="days">
+
+  Montag: <%= link_to @planer_next_week.monday_recipe.title, @planer_next_week.monday_recipe %></br>   
+  Dienstag:<%= link_to @planer_next_week.tuesday_recipe.title, @planer_next_week.tuesday_recipe%> </br>
+  Mittwoch:<%= link_to @planer_next_week.wednesday_recipe.title, @planer_next_week.wednesday_recipe%> </br>
+  Donnerstag:<%= link_to @planer_next_week.thursday_recipe.title, @planer_next_week.thursday_recipe%> </br>
+  Freitag:<%= link_to @planer_next_week.friday_recipe.title, @planer_next_week.friday_recipe%> </br>
+  Samstag:<%= link_to @planer_next_week.satureday_recipe.title, @planer_next_week.satureday_recipe%> </br>
+  Sonntag:<%= link_to @planer_next_week.sunday_recipe.title, @planer_next_week.sunday_recipe%> </br>
+</div>
+</section>
+</div>
+
+
+  <div class="button-row">
+  <%= link_to "Neues Rezept", new_recipe_path, class: "button" %>
+  <%= link_to "Zutaten", ingredients_path, class: "button" %>
+</div>
 
   
-  <h1>Shoppinglist</h1>
+
+  <section class="card">
+  <h1>🛒 Einkaufsliste</h1>
 
 <% if @shopping_items.any? %>
   <table>
     <thead>
       <tr>
         <th>Erledigt</th>
-        <th>Artikel</th>
         <th>Menge</th>
         <th>Einheit</th>
+        <th>Artikel</th>
         <th>Aktion</th>
       </tr>
     </thead>
@@ -48,13 +65,13 @@
         <tr>
           <td>
             <%= form_with model: [item.weeklyplaner, item], local: true do |f| %>
-              <%= f.check_box :done, { onchange: "this.form.submit();" } %>
-              <%= f.number_field :total_menge, step: 0.1, onchange: "this.form.submit();" %>
+              <%= f.check_box :done, { onchange: "this.form.submit();" } %> </td>
+             <td> <%= f.number_field :total_menge, step: 0.1, onchange: "this.form.submit();" %>
             <% end %>
           </td>
-          <td><%= item.name %></td>
-          
+                    
           <td><%= item.einheit %></td>
+          <td><%= item.name %></td>
           <td>
             <%= button_to 'Löschen', [item.weeklyplaner, item], method: :delete, data: { confirm: "Wirklich löschen?" } %>
           </td>
@@ -65,30 +82,35 @@
 <% else %>
   <p>No ingredients found.</p>
 <% end %>
+</section>
 
-<h1> New Shoppinglistitem </h1>
+<section class="card">
+  <h1>➕ Neu auf die Einkaufsliste</h1>
 
 <%= form_with model: [@planer_this_week, ShoppingItem.new] do |form| %>
-  <div>
-    <%= form.label :name %>
+  <div class="shopping-form-row">
+    <div class="form-group">
+    <%= form.label :name, "📝 Name" %>
     <%= form.text_field :name %>
   </div>
 
-  <div>
-  <%= form.label :einheit %>
-  <%= form.text_field :einheit %>
-  </div>
-
-  <div>
-  <%= form.label :total_menge %>
+  <div class="form-group">
+  <%= form.label :total_menge, "🔢 Menge" %>
   <%= form.text_field :total_menge %>
   </div>
 
+  <div class="form-group">
+  <%= form.label :einheit, "📏 Einheit" %>
+  <%= form.text_field :einheit %>
+  </div>
+  </div>
+
   <div>
-    <%= form.submit %>
+    <%= form.submit "Neu auf Einkaufsliste"%>
   </div>
 
 <% end %>
+</section>
 
-
+</body>
 
